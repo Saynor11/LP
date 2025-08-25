@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta name="google-site-verification" content="6HnAFhkdbjhbVgrTXdG7cc-fjYfblcskILC6uRP2LVI" />
+  <link rel="icon" type="image/png" href="https://i.ibb.co/SXwXdcfR/IMG-20250816-WA0007.jpg">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "LowPriceKG",
+  "alternateName": "LowPrice",
+  "url": "https://saynor11.github.io/LP/",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://saynor11.github.io/LP/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LowPrice-магазин телефонов в Кыргызстане по доступным ценам</title>
+<meta name="description" content="LowPrice — магазин телефонов в Кыргызстане. Продажа Apple, Samsung, Xiaomi.">
+<meta name="keywords" content="LowPriceKg, lowpricekg, Lowpricekg, lowPricekg, Low Price Kg, Lowprice Kg, лоупрайскг, ЛоуПрайсКГ, Лоу Прайс Кг, телефоны бишкек, купить телефон, телефоны Бишкек, купить iPhone, Samsung, Xiaomi, доступно, магазин телефонов">
+<meta name="author" content="LowPrice">
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #949597;
+        color: black;
+    }
+    /* Верхняя панель */
+    .top-bar {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%;
+        height: 60px;
+        background-color: white;
+        display: flex;
+        align-items: center;
+        padding: 0 60px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        z-index: 1001;
+    }
+    .site-logo {
+        height: 60px;
+        width: 60px;
+        border-radius: 20px;
+        margin-right: 20px;
+        object-fit: cover;
+    }
+    .site-name {
+        font-size: 20px;
+        font-weight: bold;
+    }
+    /* Бургер-меню */
+    .hamburger {
+        position: fixed;
+        top: 20px; left: 20px;
+        width: 30px;
+        height: 25px;
+        cursor: pointer;
+        z-index: 1001;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .hamburger div {
+        height: 4px;
+        background-color: black;
+        border-radius: 2px;
+    }
+    .overlay {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background-color: rgba(0,0,0,0.3);
+        backdrop-filter: blur(8px);
+        display: none;
+        z-index: 1000;
+    }
+    .side-menu {
+        position: fixed;
+        top: 0; left: 0;
+        width: 50%;
+        height: 100%;
+        background-color: #dddee5;
+        box-shadow: 2px 0 8px rgba(0,0,0,0.2);
+        padding: 20px;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        z-index: 1002;
+    }
+    .side-menu.open {
+        transform: translateX(0);
+    }
+    .close-btn {
+        font-size: 30px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-bottom: 20px;
+    }
+    .side-menu ul {
+        list-style: none;
+        padding: 0;
+    }
+    .side-menu li {
+        padding: 10px 0;
+        border-bottom: 1px solid #ccc;
+        cursor: pointer;
+    }
+    .side-menu li:hover {
+        background: #ddd;
+    }
+    /* Поиск */
+    .search-bar {
+        margin: 80px auto 20px;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+    .search-bar input {
+        padding: 10px;
+        width: 250px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    .search-bar button {
+        padding: 10px 15px;
+        background-color: black;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    /* Сетка товаров */
+    .products-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 15px;
+        padding: 0 20px 20px;
+    }
+    .product-card {
+        background: #ecedef;
+        border-radius: 10px;
+        padding: 10px;
+        text-align: center;
+        cursor: pointer;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        transition: transform 0.2s;
+    }
+    .product-card:hover {
+        transform: scale(1.05);
+    }
+    .product-card img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+    .product-name {
+        margin-top: 8px;
+        font-size: 14px;
+        font-weight: bold;
+    }
+    /* Модальное окно товара */
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0,0,0,0.7);
+        z-index: 2000;
+        justify-content: center;
+        align-items: center;
+    }
+    .modal-content {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        width: 90%;
+        max-width: 500px;
+        text-align: center;
+        position: relative;
+    }
+    .modal-content img {
+        width: 100%;
+        border-radius: 8px;
+        margin-bottom: 10px;
+    }
+    .modal-close {
+        position: absolute;
+        top: 10px; right: 15px;
+        font-size: 24px;
+        cursor: pointer;
+    }
+    /* Popup */
+    .popup {
+        display: none;
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0,0,0,0.5);
+        justify-content: center;
+        align-items: center;
+        z-index: 3000;
+    }
+    .popup-content {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 400px;
+        text-align: center;
+        position: relative;
+    }
+    .popup-close {
+        position: absolute;
+        top: 5px; right: 10px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    .telegram-button {
+    position: fixed;
+    bottom: 20px;
+    right: 280px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s, background 0.2s;
+    z-index: 4000;
+}
+.telegram-button img {
+    width: 50px;
+    height: 50px;
+}
+.fixed-add-btn {
+  position: fixed;        /* закрепляем на экране */
+  bottom: 20px;           /* отступ от нижнего края */
+  left: 50%;              /* выравниваем по центру */
+  transform: translateX(-50%); /* сдвигаем ровно по центру */
+  
+  padding: 14px 28px;
+  font-size: 18px;
+  font-weight: bold;
+  
+  border: none;
+  border-radius: 50px;    /* скруглённая кнопка */
+  background-color: black; /* зелёная кнопка */
+  color: white;
+  cursor: pointer;
+  
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* лёгкая тень */
+  z-index: 1000;          /* чтобы была поверх всего */
+}
+
+.fixed-add-btn:hover {
+  background-color: black; /* чуть темнее при наведении */
+}
+/* затемнённый фон */
+
+
+/* сама карточка */
+.modal-content {
+  background: white;
+  padding: 25px;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;   /* ограничим по высоте */
+  overflow-y: auto;   /* прокрутка если много полей */
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  position: relative;
+  animation: slideUp 0.3s ease-out;
+}
+
+
+/* заголовок */
+.modal-content h2 {
+  margin-bottom: 15px;
+  font-size: 22px;
+  color: #333;
+  text-align: center;
+}
+
+/* поля формы */
+.modal-content label {
+  display: block;
+  margin-top: 12px;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #444;
+}
+
+.modal-content input,
+.modal-content select,
+.modal-content textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.modal-content input:focus,
+.modal-content select:focus,
+.modal-content textarea:focus {
+  border-color: black;
+}
+
+/* кнопка */
+.modal-content button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  background: black;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.modal-content button:hover {
+  background: #0056b3;
+}
+
+/* крестик */
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #888;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.modal-close:hover {
+  color: #000;
+}
+
+/* анимации */
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes slideUp {
+  from {transform: translateY(50px); opacity: 0;}
+  to {transform: translateY(0); opacity: 1;}
+}
+
+
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
+
+<!-- В head (после app-compat и database-compat) -->
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+/* Оверлей для блокировки страницы */
+#authOverlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6); /* затемнение */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* поверх всего */
+}
+
+/* Кнопка входа */
+#authOverlay button {
+  padding: 16px 32px;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  background: white;
+  color: black;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: background 0.3s;
+}
+#authOverlay button:hover {
+  background: #ddd;
+}
+
+
+</style>
+</head>
+<body>
+  <!-- Оверлей авторизации -->
+<div id="authOverlay" style="display: none;">
+  <button id="startLoginBtn">Войти, чтобы начать</button>
+</div>
+
+  <!-- Блок авторизации -->
+<script>
+  const auth = firebase.auth();
+  const provider = new firebase.auth.GoogleAuthProvider();
+
+  // Кнопка "Войти, чтобы начать"
+  document.getElementById("startLoginBtn").onclick = () => {
+    auth.signInWithPopup(provider).catch(err => {
+      alert("Ошибка входа: " + err.message);
+    });
+  };
+
+  // Следим за входом/выходом
+  auth.onAuthStateChanged(user => {
+    if (user) {
+      // если вошёл — убираем оверлей
+      document.getElementById("authOverlay").style.display = "none";
+    } else {
+      // если не вошёл — показываем оверлей
+      document.getElementById("authOverlay").style.display = "flex";
+    }
+  });
+</script>
+
+  <!-- Форма добавления объявления -->
+<div class="modal" id="adFormModal">
+  <div class="modal-content" style="max-width:700px; text-align:left;">
+    <span class="modal-close" onclick="closeAdForm()">&times;</span>
+    <h2>Новое объявление</h2>
+
+    <label>Название устройства</label>
+    <input id="title" type="text" placeholder="Например: iPhone 14 Pro 256 black" />
+
+    <label>Цена (сом)</label>
+    <input id="price" type="number" min="0" step="100" placeholder="66000" />
+
+    <label>Комплект</label>
+    <input id="bundle" type="text" placeholder="коробка, чек, кабель" />
+
+    <label>Цвет</label>
+    <select id="color">
+      <option>черный</option><option>белый</option><option>синий</option>
+      <option>зелёный</option><option>красный</option><option>золотой</option>
+    </select>
+
+    <label>Состояние</label>
+    <select id="condition">
+      <option>1/10</option><option>5/10</option><option selected>10/10</option>
+    </select>
+
+    <label>Память (ОЗУ / Storage)</label>
+    <div style="display:flex;gap:10px;">
+      <select id="ram"><option>4</option><option>6</option><option>8</option><option>12</option></select>
+      <select id="storage"><option>64</option><option>128</option><option>256</option><option>512</option></select>
+    </div>
+
+    <label>Описание</label>
+    <textarea id="freeText" placeholder="Опишите состояние устройства"></textarea>
+
+    <label>Фотографии (ссылки)</label>
+    <input id="photo1" type="text" placeholder="Фото 1 — ссылка">
+    <input id="photo2" type="text" placeholder="Фото 2 — ссылка">
+    <input id="photo3" type="text" placeholder="Фото 3 — ссылка">
+    <input id="photo4" type="text" placeholder="Фото 4 — ссылка">
+
+    <button onclick="submitAd()" style="margin-top:15px;">Отправить объявление</button>
+  </div>
+</div>
+
+
+<header class="top-bar">
+    <div class="hamburger" id="hamburger">
+        <div></div><div></div><div></div>
+    </div>
+    <img src="https://i.ibb.co/SXwXdcfR/IMG-20250816-WA0007.jpg" alt="Логотип" class="site-logo">
+    <span class="site-name">LowPrice</span>
+</header>
+
+<div class="overlay" id="overlay"></div>
+
+<nav class="side-menu" id="sideMenu">
+    <div class="close-btn" id="closeBtn">&times;</div>
+    <ul>
+        <li onclick="showPopup(0)">Не нашли нужное?</li>
+        <li onclick="showPopup(1)">Вопрос-ответ</li>
+        <li onclick="showPopup(2)">Информация о сайте</li>
+    </ul>
+</nav>
+
+<div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Поиск телефона...">
+    <button onclick="searchProducts()">Поиск</button>
+</div>
+
+
+<div class="products-grid" id="productsGrid"></div>
+<div class="add-ad-container">
+</div>
+
+
+<!-- Модалка товара со слайдером -->
+<div class="modal" id="productModal">
+    <div class="modal-content" style="position: relative;">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+
+        <!-- Кнопка влево -->
+        <img id="modalImage" src="" alt="" style="max-width:100%;border-radius:8px;">
+
+<!-- Кнопка влево -->
+<button onclick="showPrevImage()" 
+        style="position:absolute;left:-140px;top:60%;transform:translateY(-350%);font-size:40px;background:none;border:none;cursor:pointer;z-index:2;">
+    ⟨
+</button>
+
+<!-- Кнопка вправо -->
+<button onclick="showNextImage()" 
+        style="position:absolute;right:-140px;top:60%;transform:translateY(-350%);font-size:40px;background:none;border:none;cursor:pointer;z-index:2;">
+    ⟩
+</button>
+ 
+
+        <!-- Название и описание -->
+        <h2 id="modalName"></h2>
+        <p id="modalDescription"></p>
+    </div>
+</div>
+
+
+<!-- Popup меню -->
+<div class="popup" id="popupMenu">
+    <div class="popup-content">
+        <span class="popup-close" onclick="closePopup()">&times;</span>
+        <p id="popupText"></p>
+    </div>
+</div>
+
+<script>
+  function openAdForm() {
+  document.getElementById("adFormModal").style.display = "flex";
+}
+function closeAdForm() {
+  document.getElementById("adFormModal").style.display = "none";
+}
+
+function submitAd() {
+  if (!auth.currentUser) {
+    alert("Сначала войдите через Google, чтобы добавить объявление.");
+    return;
+  }
+
+  const title = document.getElementById("title").value.trim();
+  const price = document.getElementById("price").value.trim();
+  const bundle = document.getElementById("bundle").value.trim();
+  const color = document.getElementById("color").value;
+  const condition = document.getElementById("condition").value;
+  const ram = document.getElementById("ram").value;
+  const storage = document.getElementById("storage").value;
+  const desc = document.getElementById("freeText").value.trim();
+  const photos = [
+    document.getElementById("photo1").value.trim(),
+    document.getElementById("photo2").value.trim(),
+    document.getElementById("photo3").value.trim(),
+    document.getElementById("photo4").value.trim()
+  ].filter(Boolean);
+
+  const user = auth.currentUser;
+
+  const newProduct = {
+    title,
+    price,
+    bundle,
+    color,
+    condition,
+    ram,
+    storage,
+    description: desc,
+    images: photos,
+    uid: user.uid,
+    authorName: user.displayName,
+    authorPhoto: user.photoURL || ""
+  };
+
+  db.ref("products").push(newProduct);
+
+  ["title","price","bundle","freeText","photo1","photo2","photo3","photo4"].forEach(id=>{
+    const el = document.getElementById(id);
+    if (el) el.value = "";
+  });
+
+  closeAdForm();
+}
+
+
+const menuTexts = [
+    "Если не нашли нужный товар — напишите нам в Telegram, и мы постараемся его найти и привезти.<br><br> по времени, с момента заказа устройства до того как получите телефон в руки проходит около 3-5 дней.<br><br>После поступления заказа через некоторое время мы скажем вам стоимость, вы должны будете внести предоплату в размере 50% от стоимости телефона, остальные 50% оплатите при получении.",
+    "Вопрос-ответ:<br><br>Оригинальные ли телефоны? - Да, телефоны у нас оригинальные, но аксессуары могут быть не оригинальные но максимально качественные.<br><br>Как понять какой аксессуар оригинален? - Вся информация о товаре есть в объявлении",
+    "LowPrice — Это магазин с лучшими ценами на телефоны. Мы покупаем телефоны заграницей, регистрируем их и продаем, по этой причине они уже открыты и цена в разы ниже чем у оффициальных продавцов<br><br>Все телефоны абсолютно новые, но у некоторых из них могут быть особенности (встроенные приложения,кол-во сим карт, и ограничение некоторых функций) т.к они могут быть сделаны для разных стран.Мы работаем на чистоту не скрывая особенности устройств устройств. <br><br> Если хотите быть уверены в покупке то просим уточнять особенности в телеграмме.Так же все телефоны без гарантий на сервисное обслуживание внутри Кыргызстана  ."
+];
+
+function showPopup(index) {
+    document.getElementById("popupText").innerHTML = menuTexts[index];
+    document.getElementById("popupMenu").style.display = "flex";
+}
+function closePopup() {
+    document.getElementById("popupMenu").style.display = "none";
+}
+
+/* Товары */
+const products = [
+    {
+        name: "Samsung S25 256GB Blue",
+        images: ["https://i.ibb.co/xpFqzYM/IMG-20250815-WA0019.jpg","https://i.ibb.co/YTLg2h6w/IMG-20250815-WA0017.jpg","https://i.ibb.co/Tqq0SxVx/IMG-20250815-WA0015.jpg","https://i.ibb.co/Q7ddKScw/IMG-20250815-WA0018.jpg"],
+        description:'<p>Цена - 66 000<p> <p>Состояние - Идеал 10/10<p> <p>Комплект - коробка, чек<p> <p>Цвет - синий<p><p>Память - 12/256<p>                     <p>Описание -<p>               '
+    }
+];
+
+function renderProducts(filter = "") {
+    const grid = document.getElementById("productsGrid");
+    grid.innerHTML = "";
+
+    // проверяем по title (если его нет, fallback на name)
+    const filtered = products.filter(p =>
+        (p.title || p.name || "").toLowerCase().includes(filter.toLowerCase())
+    );
+
+    filtered.forEach((product, index) => {
+        const card = document.createElement("div");
+        card.className = "product-card";
+
+        card.innerHTML = `
+  <img src="${product.images && product.images[0] ? product.images[0] : "placeholder.png"}" 
+       alt="${product.title || product.name}">
+  <div class="product-name">${product.title || product.name}</div>
+  ${auth.currentUser && product.uid === auth.currentUser.uid 
+    ? `<button onclick="deleteAd('${product.id}')">Удалить</button>` 
+    : ""}
+`;
+
+        card.onclick = () => openModal(index);
+        grid.appendChild(card);
+    });
+}
+
+
+function searchProducts() {
+    const query = document.getElementById("searchInput").value.trim();
+    renderProducts(query);
+}
+
+let currentImageIndex = 0;
+let currentProductImages = [];
+
+function openModal(index) {
+    const product = products[index];
+    currentProductImages = product.images;
+    currentImageIndex = 0;
+
+    document.getElementById("modalImage").src = currentProductImages[currentImageIndex];
+    document.getElementById("modalName").textContent = product.name;
+    document.getElementById("modalDescription").innerHTML = product.description;
+
+    document.getElementById("productModal").style.display = "flex";
+}
+
+function closeModal() {
+    document.getElementById("productModal").style.display = "none";
+}
+
+function showNextImage() {
+    if (currentProductImages.length > 1) {
+        currentImageIndex = (currentImageIndex + 1) % currentProductImages.length;
+        document.getElementById("modalImage").src = currentProductImages[currentImageIndex];
+    }
+}
+
+function showPrevImage() {
+    if (currentProductImages.length > 1) {
+        currentImageIndex = (currentImageIndex - 1 + currentProductImages.length) % currentProductImages.length;
+        document.getElementById("modalImage").src = currentProductImages[currentImageIndex];
+    }
+}
+
+/* Бургер-меню */
+document.getElementById("hamburger").onclick = () => {
+    document.getElementById("sideMenu").classList.add("open");
+    document.getElementById("overlay").style.display = "block";
+};
+document.getElementById("closeBtn").onclick = () => {
+    document.getElementById("sideMenu").classList.remove("open");
+    document.getElementById("overlay").style.display = "none";
+};
+document.getElementById("overlay").onclick = () => {
+    document.getElementById("sideMenu").classList.remove("open");
+    document.getElementById("overlay").style.display = "none";
+};
+
+renderProducts();
+function deleteAd(id) {
+  if (!auth.currentUser) return;
+  const product = products.find(p => p.id === id);
+  if (product && product.uid === auth.currentUser.uid) {
+    db.ref("products/" + id).remove();
+  } else {
+    alert("Вы можете удалить только свои объявления.");
+  }
+}
+;
+</script>
+
+<!-- Кнопка Telegram -->
+<a href="https://t.me/selller72" target="_blank" class="telegram-button">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram">
+</a>
+<button class="fixed-add-btn" onclick="openAdForm()">+</button>
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyAkM6OsynzBZhDxS9RY1uUbBGL44LPrApE",
+    authDomain: "lowp1-c0d97.firebaseapp.com",
+    databaseURL: "https://lowp1-c0d97-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "lowp1-c0d97",
+    storageBucket: "lowp1-c0d97.firebasestorage.app",
+    messagingSenderId: "794457611606",
+    appId: "1:794457611606:web:dd6ca7a2af49a26d808af7",
+    measurementId: "G-SPYR6PW4RW"
+  };
+
+  // 🔥 Инициализация Firebase
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.database();
+  // Загружаем все объявления из Firebase и следим за изменениями
+db.ref("products").on("value", snapshot => {
+  const data = snapshot.val();
+  products.length = 0; // очищаем локальный массив
+
+  for (let id in data) {
+  products.push({ id, ...data[id] }); // сохраняем id вместе с данными
+}
+  function renderProducts(filter = "") {
+  const grid = document.getElementById("productsGrid");
+  grid.innerHTML = "";
+
+  // фильтруем по названию
+  const filtered = products.filter(p =>
+    (p.title || p.name || "").toLowerCase().includes(filter.toLowerCase())
+  );
+
+  filtered.forEach((product, index) => {
+    const card = document.createElement("div");
+    card.className = "product-card";
+
+    // содержимое карточки
+    card.innerHTML = `
+      <img src="${product.images && product.images[0] ? product.images[0] : "placeholder.png"}" 
+           alt="${product.title || product.name}">
+      <div class="product-name">${product.title || product.name}</div>
+      ${auth.currentUser && product.uid === auth.currentUser.uid 
+        ? `<button class="delete-btn" onclick="deleteAd('${product.id}')">Удалить</button>` 
+        : ""}
+    `;
+
+    // клик по карточке (открыть модалку с фото/описанием)
+    card.querySelector("img").onclick = () => openModal(index);
+
+    grid.appendChild(card);
+  });
+}
+function deleteAd(id) {
+  if (!auth.currentUser) return;
+
+  const product = products.find(p => p.id === id);
+
+  if (product && product.uid === auth.currentUser.uid) {
+    if (confirm("Удалить это объявление?")) {
+      db.ref("products/" + id).remove();
+    }
+  } else {
+    alert("Вы можете удалять только свои объявления.");
+  }
+}
+
+
+
+</script>
+
+<script src="script.js"></script>
+</body>
+</html>
